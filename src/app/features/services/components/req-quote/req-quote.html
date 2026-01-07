@@ -1,0 +1,28 @@
+<div class="relative overflow-hidden h-[400px] flex justify-center items-center px-10 lg:px-20">
+  <img
+    src="/assets/images/services/quote-cover-720.webp"
+    srcset="/assets/images/services/quote-cover-480.webp 480w, /assets/images/services/quote-cover-640.webp 640w, /assets/images/services/quote-cover-720.webp 720w, /assets/images/services/quote-cover-960.webp 960w, /assets/images/services/quote-cover-1200.webp 1200w, /assets/images/services/quote-cover-1440.webp 1440w, /assets/images/services/quote-cover-1920.webp 1920w, /assets/images/services/quote-cover-2560.webp 2560w"
+    sizes="(max-width: 767px) calc(100vw - 2rem), calc(100vw - 9rem)"
+    alt="Our Services Cover"
+    loading="lazy"
+    decoding="async"
+    class="-z-10 w-full absolute h-[400px] object-cover rounded-[20px] brightness-75"
+  >
+
+  <div class="flex flex-col items-center gap-4 text-white z-10">
+    <h3 class="text-3xl md:text-5xl font-medium mb-4">{{ 'What would change if your website finally worked properly?' | translate }}</h3>
+
+    <app-button
+      [label]="'Build It Right' | translate"
+      variant="primary"
+      size="small"
+      icon="/assets/icons/shared/arrow-upper-right.png"
+      iconPosition="right"
+      [routerLink]="['/contact-us']"
+      [fragment]="'contact-form'"
+    />
+  </div>
+
+  <img class="absolute -top-25 -left-20" src="/assets/icons/shared/dotted-Vector.svg" alt="">
+  <img class="absolute -bottom-25 -right-0" src="/assets/icons/shared/dotted-Vecot-bottom.svg" alt="">
+</div>

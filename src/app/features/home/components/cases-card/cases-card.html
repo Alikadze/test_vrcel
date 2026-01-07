@@ -1,0 +1,45 @@
+<div class="w-full flex flex-col-reverse lg:flex-row justify-between bg-[#212121] rounded-[20px] flex gap-[20px] lg:gap-[80px] px-[20px] py-[40px] lg:p-[40px]">
+  <div class="flex flex-col justify-between">
+    <div>
+      <div class="text-3xl lg:text-4xl mb-5">{{ card().title | translate }}</div>
+      <div>
+        {{ card().description | translate }}
+      </div>
+    </div>
+    <div class="flex flex-col mt-[20px] lg:mt-0 gap-[30px]">
+      <div class="uppercase text-2xl">
+        {{ 'Results' | translate }}
+      </div>
+
+      <div class="flex flex-wrap lg:flex-nowrap gap-[50px]">
+        @for (result of card().results; track $index) {
+          <div class="border-l border-[#FF4B28] max-w-[180px] lg:w-[180px] lg:h-[130px] pl-[20px] py-[8px] flex flex-col justify-between">
+            <div class="font-semibold text-2xl">{{ result.number }}</div>
+            <div>
+              {{ result.text | translate }}
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+
+  <div
+    class="relative overflow-hidden py-[20px] lg:py-[70px] rounded-[20px]"
+    [style.backgroundColor]="card().themeColor"
+  >
+    <img class="absolute bottom-0 left-0 lg:-left-50 z-10" src="/assets/icons/shared/dotted-Vecot-bottom.svg" alt="DOTS">
+    <img class="absolute top-0 right-0 lg:-right-40 z-10" src="/assets/icons/shared/dotted-Vector.svg" alt="DOTS">
+    <img
+      class="relative z-20 px-2"
+      [src]="getOptimizedSrc(card().imageSrc)"
+      [attr.srcset]="getOptimizedSrcset(card().imageSrc)"
+      [attr.sizes]="getOptimizedSizes()"
+      [attr.width]="getImageWidth(card().imageSrc)"
+      [attr.height]="getImageHeight(card().imageSrc)"
+      alt="Case Image"
+      loading="lazy"
+      decoding="async"
+    />
+  </div>
+</div>

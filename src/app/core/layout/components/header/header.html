@@ -1,0 +1,122 @@
+<header class="w-full bg-[#E8FBEECC] backdrop-blur-[2px] rounded-[20px] z-50">
+  <nav class="flex justify-between gap-2 items-center py-4 px-8" aria-label="Main navigation">
+    <div class="flex-shrink-0">
+      <a routerLink="/home" aria-label="BLACK IT Home">
+        <img
+          ngSrc="/assets/logos/Black_it_logo_black.svg"
+          alt="BLACK IT Logo"
+          width="140"
+          height="35"
+          priority
+        >
+      </a>
+    </div>
+
+    <ul class="hidden lg:flex gap-1 xl:gap-5 list-none m-0 p-0">
+      @for (page of navPages; track page.route) {
+        <li>
+          <app-button
+            [label]="page.label | translate"
+            variety="link"
+            [active]="isActive(page.route)"
+            (click)="navTo(page.route)"
+          />
+        </li>
+      }
+    </ul>
+
+    <p-button
+      class="lg:hidden"
+      variant="text"
+      icon="pi pi-bars"
+      severity="secondary"
+      styleClass="!rounded-[10px] !text-black"
+      (click)="op.toggle($event)"
+      ariaLabel="Toggle navigation menu"
+    />
+
+    <div class="hidden lg:flex flex-wrap gap-5 tems-center">
+      <app-button
+        variety="primary"
+        [label]="'Contact Us' | translate"
+        icon="/assets/icons/shared/phone-call.svg"
+        (click)="navTo('/contact-us')"
+      />
+
+      <div class="relative flex bg-[#B7FFCE] rounded-[8px]">
+        <div
+          class="absolute inset-0 bg-black rounded-[8px] transition-all duration-300 ease-in-out"
+          [ngClass]="currentLanguage === 'en' ? 'w-1/2 left-0' : 'w-1/2 left-1/2'"
+        ></div>
+        <button
+          class="relative z-10 pl-7 pr-2 py-2 text-sm font-semibold transition-colors duration-300 flex-1 flex items-center justify-center"
+          [ngClass]="currentLanguage === 'en' ? 'text-white' : 'text-black cursor-pointer'"
+          (click)="currentLanguage !== 'en' && setLanguage('en')"
+          aria-label="Switch to English"
+        >
+          English
+        </button>
+        <button
+          class="relative z-10 pr-5 pl-10 py-2 text-sm font-semibold transition-colors duration-300 flex-1 flex items-center justify-center"
+          [ngClass]="currentLanguage === 'ro' ? 'text-white' : 'text-black cursor-pointer'"
+          (click)="currentLanguage !== 'ro' && setLanguage('ro')"
+          aria-label="Switch to Romanian"
+        >
+          Romanian
+        </button>
+      </div>
+    </div>
+  </nav>
+</header>
+
+
+<p-popover
+  #op
+  [unstyled]="true"
+  styleClass="bg-[#E8FBEECC] p-4 rounded-[12px] backdrop-blur-[2px] shadow-lg mt-2"
+>
+  <ng-template #content>
+      <div class="flex flex-col gap-4">
+        @for (page of navPages; track page.route) {
+          <div
+            (click)="navTo(page.route); op.hide()"
+            class="font-[500] px-2 py-1 cursor-pointer"
+          >
+            {{ page.label | translate }}
+          </div>
+        }
+
+        <div
+          (click)="navTo('/contact-us'); op.hide()"
+          class="font-[500] px-2 py-1 cursor-pointer"
+        >
+          {{ 'Contact Us' | translate }}
+        </div>
+
+        <p-divider class="!-my-1"/>
+
+        <div class="relative flex flex-col bg-[#B7FFCE] rounded-[8px] w-full">
+          <div
+            class="absolute bg-black rounded-[8px] transition-all duration-300 ease-in-out"
+            [ngClass]="currentLanguage === 'en' ? 'h-1/2 top-0 inset-x-0' : 'h-1/2 top-1/2 inset-x-0'"
+          ></div>
+          <button
+            class="relative z-10 px-4 py-3 text-sm font-semibold transition-colors duration-300 flex items-center justify-center"
+            [ngClass]="currentLanguage === 'en' ? 'text-white' : 'text-black'"
+            (click)="currentLanguage !== 'en' && setLanguage('en')"
+            aria-label="Switch to English"
+          >
+            English
+          </button>
+          <button
+            class="relative z-10 px-4 py-3 text-sm font-semibold transition-colors duration-300 flex items-center justify-center"
+            [ngClass]="currentLanguage === 'ro' ? 'text-white' : 'text-black'"
+            (click)="currentLanguage !== 'ro' && setLanguage('ro')"
+            aria-label="Switch to Romanian"
+          >
+            Romanian
+          </button>
+        </div>
+      </div>
+  </ng-template>
+</p-popover>

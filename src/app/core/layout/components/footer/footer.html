@@ -1,0 +1,112 @@
+<footer class="relative overflow-hidden w-full flex flex-col justify-between h-auto lg:h-[500px] bg-black rounded-[20px] p-6 text-white">
+  <section class="w-full h-auto min-h-[80px] rounded-[16px] bg-[#323131] flex flex-col md:flex-row justify-between items-center p-5" aria-label="Newsletter signup">
+    <div class="flex flex-col md:flex-row items-center gap-8">
+      <div class="size-auto md:py-1 p-8 md:p-0 md:px-2 flex justify-center items-center rounded-[20px] md:rounded-[6px] bg-[#4C4C4C] border-2 border-[#323131] ring-1 ring-[#1a1a1a] ring-offset-1 ring-offset-[#323131]" aria-hidden="true">
+        <i class="pi pi-bell !text-4xl md:!text-2xl"></i>
+      </div>
+      <p class="text-center md:text-start">
+        {{ 'If your website isn’t pulling its weight yet, this is where that changes.' | translate }}
+      </p>
+    </div>
+
+    <form class="flex flex-col mt-4 md:mt-0 md:flex-row items-center gap-5 w-full md:w-auto">
+      <label for="newsletterEmail" class="sr-only">{{ 'Email address for newsletter' | translate }}</label>
+      <input
+        id="newsletterEmail"
+        name="email"
+        type="email"
+        pInputText
+        class="primary-input w-full lg:!w-[350px]"
+        placeholder="Email"
+        required
+        aria-required="true"
+      />
+
+      <app-button
+        [label]="'Send' | translate"
+        icon="/assets/icons/shared/arrow-upper-right.png"
+        iconPosition="right"
+        size="small"
+        class="w-full md:w-auto mb-4 md:mb-0"
+        [fullWidth]="true"
+      />
+    </form>
+  </section>
+
+  <section class="flex flex-col md:flex-row justify-between items-top mb-10 mt-10">
+    <div class="flex flex-col gap-2">
+      <img
+        ngSrc="assets/logos/Black_it_logo_white.png"
+        width="120"
+        height="30"
+        alt="Logo"
+      >
+      <span class="text-[#A8A8A8] max-w-[200px]">
+        {{ 'Designed for humans, built for business' | translate }}
+      </span>
+    </div>
+
+    <nav class="flex flex-wrap lg:flex-nowrap gap-1 mt-4 md:mt-0" aria-label="Footer navigation">
+      @for (page of navPages; track page.route) {
+        <app-button
+          [label]="page.label | translate"
+          size="small"
+          variety="tertiary"
+          (click)="navTo(page.route)"
+        />
+      }
+    </nav>
+
+    <div class="flex flex-col items-start mt-4 md:items-end gap-12">
+      <ul class="flex gap-6 list-none m-0 p-0" aria-label="Social media links">
+        @for (social of socialMedia; track social.alt) {
+          <li>
+            <p
+              [attr.aria-label]="'Visit our ' + social.alt + ' page'"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="hover:opacity-80 transition-opacity duration-200 cursor-pointer"
+            >
+              <img
+                [ngSrc]="social.icon"
+                width="24"
+                height="24"
+                [alt]="social.alt + ' icon'"
+              >
+            </p>
+          </li>
+        }
+      </ul>
+
+      <address class="flex flex-col items-start md:items-end gap-4 not-italic">
+        @for (info of additionalInfo; track info.label) {
+          <div class="flex flex-row-reverse md:flex-row gap-3 items-top">
+              <span class="font-normal whitespace-pre-line text-left">
+                {{ info.label | translate }}
+              </span>
+
+            <i class="pi {{info.icon}} !text-xl" aria-hidden="true"></i>
+          </div>
+        }
+      </address>
+    </div>
+  </section>
+
+  <p-divider class="block lg:hidden"/>
+
+  <section class="flex flex-col lg:flex-row lg:justify-between text-[#A8A8A8]">
+    <nav class="flex flex-wrap md:flex-nowrap gap-8 mb-10 lg:mb-0" aria-label="Legal and policy links">
+      @for (policy of policyInfo; track policy.label) {
+        <a
+          class="cursor-pointer hover:opacity-80 transition-opacity duration-200 no-underline text-[#A8A8A8] hover:text-white"
+        >
+          {{ policy.label  | translate }}
+        </a>
+      }
+    </nav>
+
+    <div class="bg-[#B7FFCE] lg:bg-transparent absolute lg:static bottom-0 left-0 w-full lg:w-auto flex lg:block justify-center">
+      <small class="text-base text-black lg:text-white font-semibold lg:font-[300] py-2 lg:py-0">© 2025 BLACK IT</small>
+    </div>
+  </section>
+</footer>

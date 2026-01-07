@@ -1,0 +1,28 @@
+<div class="relative w-full sm:w-[460px] pt-[20px] rounded-[20px] flex flex-col justify-between">
+  <div class="px-[30px] text-[#333333] bg-[#F8F5F5] rounded-t-[20px] py-[20px] ">
+    {{ info().comment | translate }}
+  </div>
+
+  <div class="flex items-center">
+    <div class="relative h-[80px] w-fit">
+
+      <div class="absolute left-0 bg-white w-[220px] rounded-tr-[20px] z-10 h-[80px] pl-[10px] pr-[20px] flex items-center gap-3">
+
+        <div class="absolute top-0 right-0 w-[20px] h-[20px] bg-[#F8F5F5]">
+          <div class="w-full h-full bg-white rounded-tr-[20px]"></div>
+        </div>
+
+        <div class="size-14 rounded-full">
+          <img [src]="info().avatarSrc" alt="AVATAR">
+        </div>
+        <div class="flex flex-col">
+          <span class="text-base">{{ info().name | translate }}</span>
+        </div>
+      </div>
+
+    </div>
+    <div class="flex w-full justify-end">
+      <div class="w-[260px] self-end bg-[#F8F5F5] h-[80px]  rounded-b-[20px] rounded-t-0"></div>
+    </div>
+  </div>
+</div>

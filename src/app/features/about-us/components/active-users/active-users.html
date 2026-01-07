@@ -1,0 +1,51 @@
+<section class="relative w-full bg-[#F7F7F7] rounded-[24px] overflow-hidden pt-14">
+  <div class="flex flex-col gap-2 items-center justify-center">
+    <div class="text-[#FF4B28] text-xl font-[450]">
+      <span class="mr-6">20 000 000 +</span>
+
+      @for (avatar of avatars; track avatar) {
+        <img
+          [src]="avatar"
+          alt="User Avatar"
+          class="inline-block w-8 h-8 rounded-full bg-[#DEF4FF] -ml-3 first:ml-0"
+        >
+      }
+    </div>
+    <h2 class="text-5xl font-[450] max-w-[700px] text-center leading-[60px]">{{ '100+ Strategic Decisions Before a Single Line of Code' | translate }} </h2>
+    <p class="max-w-[650px] z-20 text-center text-base font-[500] text-[#595959] mt-4 px-4">
+      {{ 'We don’t open design tools on day one. We question assumptions, map user behaviour, challenge shortcuts, and pressure test ideas before anything is built. That upfront thinking is what saves businesses time, money, and painful rebuilds later.' | translate }}
+    </p>
+  </div>
+
+  <img
+    class="-mt-30 mx-auto"
+    src="/assets/images/about-us/Earth.svg"
+    alt="Global network visualization showing worldwide reach"
+  >
+
+  <img class="absolute -top-15 -left-5" src="/assets/icons/shared/dotted-Vector-top-dark.svg" alt="" role="presentation">
+  <img class="absolute -top-15 -right-5" src="/assets/icons/shared/dotted-Vector-top-right-dark.svg" alt="" role="presentation">
+</section>
+
+<div class="flex flex-col lg:flex-row gap-10 mt-10">
+  <article class="relative flex-[42%] bg-[#E63D1F] px-[40px] py-[80px] rounded-[24px] text-white overflow-hidden">
+    <h3 class="text-4xl font-[500] mb-4">
+      {{ 'The Direction We’re Pushing Toward' | translate }}
+    </h3>
+    <p class="font-medium">
+      {{ 'A web where business sites explain themselves clearly, earn trust quickly, and never make users work to understand them.' | translate }}
+    </p>
+
+    <img class="absolute top-4 -left-80" src="/assets/icons/shared/dotted-Vector.svg" alt="" role="presentation">
+  </article>
+  <article class="relative flex-[58%] bg-[#222222] px-[40px] py-[80px] rounded-[24px] text-white overflow-hidden">
+    <h3 class="text-4xl font-[500] mb-4">
+      {{ 'The Way We Actually Work' | translate }}
+    </h3>
+    <p class="max-w-[500px]">
+      {{ 'We slow down early, think deeply, and build deliberately, so websites launch once and keep working instead of needing constant fixes.' | translate }}
+    </p>
+
+    <img class="absolute bottom-0 -right-30" src="/assets/icons/shared/dotted-Vecot-bottom.svg" alt="" role="presentation">
+  </article>
+</div>

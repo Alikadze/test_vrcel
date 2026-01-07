@@ -1,0 +1,22 @@
+<div class="bg-[#F8F6F6] rounded-[20px] px-[30px] py-[20px]">
+  <div class="flex items-center gap-1 mb-[30px]">
+    <div class="size-2 bg-[#FF4B28]"></div>
+    <span class="text-sm font-semibold">{{ 'Questions & Answers' | translate}}</span>
+  </div>
+
+  <div class="flex flex-col xl:flex-row justify-between gap-[50px]">
+    <div class="text-4xl lg:text-6xl font-[500] leading-[50px] xl:leading-[72px] max-w-[600px]">
+      {{'Frequently Asked Questions and Answers' | translate}}<span class="text-[#FF4B28]">.</span>
+    </div>
+
+    <div class="flex flex-col gap-[30px] pb-[50px]">
+      @for (question of questions(); track question.title; let i = $index) {
+        <app-faq-item
+          [question]="question"
+          [isExpanded]="expandedIndex() === i"
+          (toggle)="toggleQuestion(i)"
+        />
+      }
+    </div>
+  </div>
+</div>

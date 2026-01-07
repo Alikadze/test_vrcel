@@ -1,0 +1,25 @@
+<div class="transition duration-300">
+  <button
+    class="text-[#333333] text-2xl flex justify-between items-center w-[680px] cursor-pointer transition-colors duration-300 bg-transparent border-none w-full text-left"
+    (click)="expandToggle()"
+    [class.text-[#FF4B28]]="isExpanded()"
+    [attr.aria-label]="'Toggle FAQ: ' + question().title"
+    [attr.aria-expanded]="isExpanded()"
+  >
+    <span>{{ question().title | translate }}</span>
+    <i
+      class="pi pi-angle-down !text-xl transition-transform duration-300"
+      [class.rotate-180]="isExpanded()"
+      aria-hidden="true"
+    ></i>
+  </button>
+
+  <div
+    class="overflow-hidden transition-all duration-300 ease-in-out"
+    [class]="isExpanded() ? 'max-h-96 opacity-100 mt-[10px]' : 'max-h-0 opacity-0 mt-0'"
+  >
+    <div class="md:pl-[20px] text-[#595959] md:w-[620px]">
+      {{ question().answer | translate }}
+    </div>
+  </div>
+</div>

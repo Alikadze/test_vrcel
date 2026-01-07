@@ -1,0 +1,35 @@
+<div class="max-w-full overflow-hidden text-white bg-black rounded-[20px] px-[20px] py-[50px]">
+  <div class="flex flex-col md:flex-row justify-between md:pb-[40px] md:border-b md:border-white/40">
+    <div class="flex flex-col">
+      <div class="flex items-center gap-1 mb-[10px] md:mb-[40px]">
+        <div class="size-2 bg-[#FF4B28]"></div>
+        <span class="text-sm">Cases</span>
+      </div>
+
+      <div class="text-3xl font-semibold">
+        Our Cases
+      </div>
+    </div>
+
+    <div class="flex flex-col justify-between">
+      <div class="hidden md:block max-w-[720px]">
+        {{'Anyone can promise results. We prefer to show them. Our case studies break down real decisions, real constraints, and real outcomes, revealing how Black IT turns complex business problems into clear, high-performing digital solutions.' | translate}}
+      </div>
+      <div class="flex gap-[8px] mt-4 md:mt-0 md:gap-[16px] flex-wrap md:flex-nowrap">
+        @for (service of ourServices; track service.title) {
+          <div class="mt-4 bg-[#212121] px-[25px] py-[8px] rounded-[40px] text-sm uppercase">
+            {{service.title | translate }}
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+
+  <div class="flex flex-col gap-10 mt-10">
+    @for (card of casesCardInfo; track card.title) {
+      <app-cases-card
+        [card]="card"
+      />
+    }
+  </div>
+</div>

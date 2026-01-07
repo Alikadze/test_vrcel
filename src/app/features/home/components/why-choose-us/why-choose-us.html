@@ -1,0 +1,30 @@
+<div class="w-full flex flex-col items-center">
+  <div class="flex justify-start w-full">
+    <div class="flex items-center gap-1">
+      <div class="size-2 bg-[#FF4B28]"></div>
+      <span class="text-sm font-semibold">{{ 'Why choose us?' | translate }}</span>
+    </div>
+  </div>
+
+  <div class="text-4xl font-bold my-4 text-center">
+    {{ 'Why businesses trust Black IT' | translate }}
+  </div>
+
+  <div class="text-[#6B6B6B] max-w-[500px] text-center">
+    {{ 'Trust is not built with buzzwords. It is built through decisions, discipline, and delivery. Black IT earns confidence by thinking deeply, executing clearly, and showing up as a trusted IT partner when it matters most.' | translate }}
+  </div>
+
+  <div class="mt-[40px] flex gap-[20px] flex-wrap justify-center">
+    @for (reason of reasons; track reason.iconSrc) {
+      <div class="size-auto sm:size-[360px] bg-[#F7F7F7] rounded-[24px] flex flex-col justify-between p-[30px]">
+        <div>
+          <img [src]="reason.iconSrc" alt="ICON"/>
+        </div>
+        <div>
+          <div class="text-3xl font-semibold">{{ reason.title | translate }}</div>
+          <div class="text-[#5A4F44] mt-[6px] pb-[20px]">{{ reason.description | translate }}</div>
+        </div>
+      </div>
+    }
+  </div>
+</div>

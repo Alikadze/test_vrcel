@@ -1,0 +1,19 @@
+<button
+  [ngClass]="getButtonClasses()"
+  class="flex items-center justify-center gap-5"
+  [attr.aria-label]="ariaLabel() || label() || 'Button'"
+  [routerLink]="routerLink()"
+  [fragment]="fragment()"
+>
+  @if (icon() && iconPosition() === 'left') {
+    <img [ngSrc]="icon()!" alt="" [ngClass]="getIconSize()" [width]="getIconPixelSize()" [height]="getIconPixelSize()" aria-hidden="true">
+  }
+
+  @if (label()) {
+    <span class="leading-none text-base font-medium">{{ label() }}</span>
+  }
+
+  @if (icon() && iconPosition() === 'right') {
+    <img [ngSrc]="icon()!" alt="" [ngClass]="getIconSize()" [width]="getIconPixelSize()" [height]="getIconPixelSize()" aria-hidden="true">
+  }
+</button>

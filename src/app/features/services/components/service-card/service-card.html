@@ -1,0 +1,25 @@
+<div class="bg-[#F7F7F7] w-auto sm:w-[480px] min-h-[460px] h-auto flex flex-col justify-between gap-2 p-[30px] rounded-[24px]">
+  <div class="flex justify-center mb-[30px] min-h-[150px]">
+    <img
+      [src]="getOptimizedIconSrc(info().icon)"
+      [attr.srcset]="getOptimizedIconSrcset(info().icon)"
+      [attr.sizes]="iconSizes"
+      [attr.width]="232"
+      alt="{{ info().title }} icon"
+      loading="lazy"
+      decoding="async"
+      class="w-auto"
+    />
+  </div>
+
+  <div class="text-sm">
+    {{ info().position }}/
+  </div>
+
+  <h3 class="text-2xl font-semibold max-w-[240px]">
+    {{ info().title | translate }}
+  </h3>
+  <p class="text-base font-[300] text-[#6A5F54]">
+    {{ info().description | translate }}
+  </p>
+</div>

@@ -1,0 +1,126 @@
+<div class="flex flex-col lg:flex-row gap-10">
+  <section id="contact-form" class="bg-[#F8F6F6] flex-1 rounded-[20px] px-[20px] pt-[20px] pb-[40px]">
+    <header class="flex justify-start w-full">
+      <div class="flex items-center gap-1">
+        <div class="size-2 bg-[#FF4B28]"></div>
+        <span class="text-sm font-semibold">{{ 'Contact Us' | translate }}</span>
+      </div>
+    </header>
+
+    <h2 class="text-4xl font-semibold mt-8">
+      {{ 'What’s Broken, Unclear, or Holding You Back?' | translate }}
+    </h2>
+
+    <p class="text-base text-[#6B6B6B] mt-6">
+      {{ 'Tell us where your website is falling short, what you wish it did better, or what you are tired of explaining to customers.' | translate }}
+    </p>
+
+    <form class="flex flex-col gap-10 mt-10" onsubmit="return false">
+      <div class="flex flex-col lg:flex-row gap-10 lg:gap-5">
+        <div class="flex flex-col gap-1 flex-1">
+          <label for="firstName">{{ 'First Name' | translate }}</label>
+          <input
+            pInputText
+            id="firstName"
+            name="firstName"
+            class="secondary-input"
+            type="text"
+          >
+        </div>
+
+        <div class="flex flex-col gap-1 flex-1">
+          <label for="lastName">{{ 'Last Name' | translate }}</label>
+          <input
+            pInputText
+            id="lastName"
+            name="lastName"
+            class="secondary-input"
+            type="text"
+          >
+        </div>
+      </div>
+
+      <div class="flex flex-col gap-1 flex-1">
+        <label for="email">{{ 'Email' | translate }}</label>
+        <input
+          pInputText
+          id="email"
+          name="email"
+          class="secondary-input"
+          type="email"
+        >
+      </div>
+
+      <div class="flex flex-col gap-1 flex-1">
+        <label for="phoneNumber">{{ 'Phone Number' | translate }}</label>
+        <input
+          pInputText
+          id="phoneNumber"
+          name="phoneNumber"
+          class="secondary-input"
+          type="text"
+        >
+      </div>
+
+      <div class="flex flex-col gap-1 flex-1">
+        <label for="message">{{ 'Message' | translate }}</label>
+        <textarea
+          pInputText
+          id="message"
+          name="message"
+          class="secondary-text-area h-[200px] resize-none"
+        ></textarea>
+      </div>
+
+      <div class="flex justify-end mt-4">
+        <app-button
+          icon="/assets/icons/shared/arrow-upper-right.png"
+          iconPosition="right"
+          size="small"
+          [label]="'Send Message' | translate"
+        />
+      </div>
+    </form>
+  </section>
+
+  <section class="flex-1 flex flex-col gap-10">
+    <div class="relative overflow-hidden">
+      <img
+        ngSrc="/assets/images/contact-us/contact-us-form-cover-640.webp"
+        srcset="/assets/images/contact-us/contact-us-form-cover-360.webp 360w, /assets/images/contact-us/contact-us-form-cover-400.webp 400w, /assets/images/contact-us/contact-us-form-cover-480.webp 480w, /assets/images/contact-us/contact-us-form-cover-640.webp 640w, /assets/images/contact-us/contact-us-form-cover-768.webp 768w, /assets/images/contact-us/contact-us-form-cover-960.webp 960w, /assets/images/contact-us/contact-us-form-cover-1200.webp 1200w"
+        alt="Our Services Cover"
+        class="-z-10 w-full object-cover rounded-[20px] brightness-70"
+        width="1200"
+        height="800"
+        sizes="(max-width: 1024px) 100vw, 30vw"
+        priority
+      >
+
+      <div class="absolute top-15 left-10 text-white max-w-[700px] z-10">
+        <h3 class="text-5xl font-semibold mb-3 uppercase">{{ 'Black IT.' | translate }}</h3>
+        <p class="text-xl font-[500] max-w-[340px]">
+          {{ 'Designed for humans. Built to make businesses clearer, faster, and harder to ignore.' | translate }}
+        </p>
+      </div>
+
+      <img class="absolute -top-25 -left-15" src="/assets/icons/shared/dotted-Vector.svg" alt="">
+    </div>
+
+    <div class="w-full bg-[#F8F6F6] px-[30px] py-[40px] flex flex-col gap-8 rounded-[20px]">
+      @for (info of contactUsInfo; track info.label) {
+        <div class="w-full">
+          <label class="text-[#474747]">
+            {{ info.label | translate }}
+          </label>
+
+          <div class="bg-[#B7FFCE] rounded-[10px] px-[20px] py-[20px] flex gap-2 items-center mt-2">
+            <i class="pi pi-{{info.icon}}"></i>
+            <span class="text-[#1A4A1A]">
+              {{ info.value | translate }}
+            </span>
+          </div>
+        </div>
+      }
+    </div>
+  </section>
+</div>

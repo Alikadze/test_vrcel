@@ -1,0 +1,17 @@
+# Default rules for all crawlers
+User-agent: *
+Allow: /
+
+# Specific rules for common bots
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# Block bad bots (optional)
+# User-agent: BadBot
+# Disallow: /
+
+# Sitemap location
+Sitemap: https://blackit.ro/sitemap.xml

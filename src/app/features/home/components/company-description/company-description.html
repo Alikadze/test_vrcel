@@ -1,0 +1,71 @@
+<div class="max-w-full overflow-hidden text-white">
+  <div class="w-full relative">
+    <img
+      src="/assets/images/home/group-people-1920.webp"
+      srcset="/assets/images/home/group-people-360.webp 360w, /assets/images/home/group-people-640.webp 640w, /assets/images/home/group-people-768.webp 768w, /assets/images/home/group-people-1074.webp 1074w, /assets/images/home/group-people-1440.webp 1440w, /assets/images/home/group-people-1920.webp 1920w, /assets/images/home/group-people-2560.webp 2560w, /assets/images/home/group-people-3200.webp 3200w"
+      sizes="(max-width: 768px) 250vw, 100vw"
+      alt="GROUP"
+      class="-z-10 w-full h-[800px] lg:h-auto object-cover rounded-[20px] brightness-70"
+      width="4096"
+      height="2304"
+      loading="eager"
+      fetchpriority="high"
+      decoding="async"
+    >
+
+    <div class="absolute top-1/4 left-[30px] flex flex-col gap-[40px]">
+      <div class="flex flex-col gap-[5px] max-w-[800px] pr-10">
+        <div class="text-3xl md:text-6xl md:leading-[80px]">
+          {{ "Black IT | Professional Web Development Company in the UK" | translate }}
+        </div>
+        <div class="text-base leading-7">
+          {{'Black IT is a professional web development company building clear, high performing websites designed for humans and built for business growth.' | translate}}
+        </div>
+      </div>
+
+      <div class="flex gap-5 z-10 flex-wrap md:flex-nowrap  md:justify-start">
+        <app-button
+          [label]="'Get Started' | translate"
+          variety="primary"
+          size="large"
+          class="w-[235px]"
+          [fullWidth]="true"
+          [routerLink]="['/contact-us']"
+          [fragment]="'contact-form'"
+        />
+
+        <app-button
+          [label]="'View Services' | translate"
+          variety="glass"
+          icon="/assets/icons/shared/arrow-up-right-white.png"
+          iconPosition="right"
+          size="medium"
+          color="white"
+          [routerLink]="['/services']"
+        />
+      </div>
+    </div>
+
+
+    <div class="w-full py-[20px] xl:px-[50px] absolute bottom-0 bg-[#F1F1F14D] flex justify-around flex-wrap gap-2 md:gap-0 md:flex-nowrap items-center border-t border-white/30 z-10 backdrop-blur-xs rounded-b-[20px]">
+      @for (info of footerContent.slice(0, 2); track info.title) {
+        <div class="flex gap-1 items-center font-light tracking-wider text-[15px] md:text-[18px]">
+          <img ngSrc="/assets/icons/home/stars.svg" width="24" height="24" alt="">
+          <span class="text-[#FF4B28]">{{ info.numericalValue }}</span>
+          <span class="text-white ">{{ info.title | translate }}</span>
+        </div>
+      }
+      @for (info of footerContent.slice(2, 3); track info.title) {
+        <div class="hidden md:flex gap-1 items-center font-light tracking-wider text-[18px]">
+          <img ngSrc="/assets/icons/home/stars.svg" width="24" height="24" alt="">
+          <span class="text-[#FF4B28]">{{ info.numericalValue }}</span>
+          <span class="text-white ">{{ info.title | translate }}</span>
+        </div>
+      }
+    </div>
+
+    <img class="absolute top-[-100px] left-[-240px]" src="/assets/icons/shared/linear-Vector.svg" alt="">
+    <img class="absolute top-0 left-0" src="/assets/icons/shared/dotted-Vector.svg" alt="">
+    <img class="absolute bottom-0 right-0" src="/assets/icons/shared/dotted-Vecot-bottom.svg" alt="">
+  </div>
+</div>

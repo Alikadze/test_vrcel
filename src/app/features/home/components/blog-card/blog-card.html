@@ -1,0 +1,28 @@
+<div class=" w-auto md:w-[430px]">
+  <img
+    [src]="getOptimizedSrc(info().imgSrc)"
+    [attr.srcset]="getOptimizedSrcset(info().imgSrc)"
+    [attr.sizes]="getSizes()"
+    alt="Blog Image"
+    class="w-full h-auto mb-[20px] rounded-lg"
+    loading="lazy"
+    decoding="async"
+  />
+
+  <div class="bg-[#B7FFCE] rounded-[10px] px-4 py-1.5 w-fit mb-[12px] text-sm font-medium">
+    {{ 'Software' | translate }}
+  </div>
+
+  <div class="text-2xl font-semibold">
+    {{ info().title | translate }}
+  </div>
+
+  <div class="flex justify-between mt-4 text-xs font-medium">
+    <div class="font-[400]">
+      {{ 'By Helen' | translate}}
+    </div>
+    <div>
+      26-11-2025
+    </div>
+  </div>
+</div>
